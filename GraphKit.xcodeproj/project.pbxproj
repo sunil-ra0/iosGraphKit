@@ -15,6 +15,13 @@
 		42467C371CCF650000700903 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42467C351CCF650000700903 /* LaunchScreen.storyboard */; };
 		42467C421CCF650000700903 /* GraphKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 42467C411CCF650000700903 /* GraphKitTests.m */; };
 		42467C4D1CCF650000700903 /* GraphKitUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 42467C4C1CCF650000700903 /* GraphKitUITests.m */; };
+		42467C5D1CCF66E700700903 /* AppCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 42467C5C1CCF66E700700903 /* AppCommon.m */; };
+		42467C621CCF675800700903 /* LineGraph.m in Sources */ = {isa = PBXBuildFile; fileRef = 42467C611CCF675800700903 /* LineGraph.m */; };
+		42467C681CCF6DF200700903 /* GraphData.m in Sources */ = {isa = PBXBuildFile; fileRef = 42467C671CCF6DF200700903 /* GraphData.m */; };
+		42467C6A1CCF6EF500700903 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42467C691CCF6EF500700903 /* CoreGraphics.framework */; };
+		42467C6C1CCF6F0100700903 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42467C6B1CCF6F0100700903 /* QuartzCore.framework */; };
+		42467C701CCF707200700903 /* GraphScale.m in Sources */ = {isa = PBXBuildFile; fileRef = 42467C6F1CCF707200700903 /* GraphScale.m */; };
+		42467C9B1CD0D3D300700903 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42467C9A1CD0D3D300700903 /* FirstViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +58,20 @@
 		42467C481CCF650000700903 /* GraphKitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GraphKitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		42467C4C1CCF650000700903 /* GraphKitUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GraphKitUITests.m; sourceTree = "<group>"; };
 		42467C4E1CCF650000700903 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		42467C5B1CCF66E700700903 /* AppCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppCommon.h; path = Utilities/AppCommon.h; sourceTree = "<group>"; };
+		42467C5C1CCF66E700700903 /* AppCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppCommon.m; path = Utilities/AppCommon.m; sourceTree = "<group>"; };
+		42467C601CCF675800700903 /* LineGraph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LineGraph.h; path = "Graphs/Line Graph/LineGraph.h"; sourceTree = "<group>"; };
+		42467C611CCF675800700903 /* LineGraph.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LineGraph.m; path = "Graphs/Line Graph/LineGraph.m"; sourceTree = "<group>"; };
+		42467C661CCF6DF200700903 /* GraphData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GraphData.h; path = "Data Source/GraphData.h"; sourceTree = "<group>"; };
+		42467C671CCF6DF200700903 /* GraphData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GraphData.m; path = "Data Source/GraphData.m"; sourceTree = "<group>"; };
+		42467C691CCF6EF500700903 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		42467C6B1CCF6F0100700903 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		42467C6E1CCF707200700903 /* GraphScale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GraphScale.h; path = "Data Source/GraphScale.h"; sourceTree = "<group>"; };
+		42467C6F1CCF707200700903 /* GraphScale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GraphScale.m; path = "Data Source/GraphScale.m"; sourceTree = "<group>"; };
+		42467C711CCF82C600700903 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		42467C731CCF834300700903 /* DesignSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DesignSheet.h; path = Utilities/DesignSheet.h; sourceTree = "<group>"; };
+		42467C991CD0D3D300700903 /* FirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FirstViewController.h; path = "View Controllers/FirstViewController.h"; sourceTree = "<group>"; };
+		42467C9A1CD0D3D300700903 /* FirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FirstViewController.m; path = "View Controllers/FirstViewController.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +79,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42467C6C1CCF6F0100700903 /* QuartzCore.framework in Frameworks */,
+				42467C6A1CCF6EF500700903 /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +104,7 @@
 		42467C1B1CCF650000700903 = {
 			isa = PBXGroup;
 			children = (
+				42467C6D1CCF6F2300700903 /* Frameworks */,
 				42467C261CCF650000700903 /* GraphKit */,
 				42467C401CCF650000700903 /* GraphKitTests */,
 				42467C4B1CCF650000700903 /* GraphKitUITests */,
@@ -101,6 +125,10 @@
 		42467C261CCF650000700903 /* GraphKit */ = {
 			isa = PBXGroup;
 			children = (
+				42467C981CD0D3A500700903 /* View Controllers */,
+				42467C631CCF6D5D00700903 /* Data Source */,
+				42467C5E1CCF66FA00700903 /* Graphs */,
+				42467C5A1CCF663B00700903 /* Utilities */,
 				42467C2A1CCF650000700903 /* AppDelegate.h */,
 				42467C2B1CCF650000700903 /* AppDelegate.m */,
 				42467C2D1CCF650000700903 /* ViewController.h */,
@@ -118,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				42467C281CCF650000700903 /* main.m */,
+				42467C711CCF82C600700903 /* PrefixHeader.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -138,6 +167,62 @@
 				42467C4E1CCF650000700903 /* Info.plist */,
 			);
 			path = GraphKitUITests;
+			sourceTree = "<group>";
+		};
+		42467C5A1CCF663B00700903 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				42467C5B1CCF66E700700903 /* AppCommon.h */,
+				42467C5C1CCF66E700700903 /* AppCommon.m */,
+				42467C731CCF834300700903 /* DesignSheet.h */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
+		42467C5E1CCF66FA00700903 /* Graphs */ = {
+			isa = PBXGroup;
+			children = (
+				42467C5F1CCF671700700903 /* Line Graph */,
+			);
+			name = Graphs;
+			sourceTree = "<group>";
+		};
+		42467C5F1CCF671700700903 /* Line Graph */ = {
+			isa = PBXGroup;
+			children = (
+				42467C601CCF675800700903 /* LineGraph.h */,
+				42467C611CCF675800700903 /* LineGraph.m */,
+			);
+			name = "Line Graph";
+			sourceTree = "<group>";
+		};
+		42467C631CCF6D5D00700903 /* Data Source */ = {
+			isa = PBXGroup;
+			children = (
+				42467C661CCF6DF200700903 /* GraphData.h */,
+				42467C671CCF6DF200700903 /* GraphData.m */,
+				42467C6E1CCF707200700903 /* GraphScale.h */,
+				42467C6F1CCF707200700903 /* GraphScale.m */,
+			);
+			name = "Data Source";
+			sourceTree = "<group>";
+		};
+		42467C6D1CCF6F2300700903 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				42467C6B1CCF6F0100700903 /* QuartzCore.framework */,
+				42467C691CCF6EF500700903 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		42467C981CD0D3A500700903 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				42467C991CD0D3D300700903 /* FirstViewController.h */,
+				42467C9A1CD0D3D300700903 /* FirstViewController.m */,
+			);
+			name = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -270,9 +355,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42467C681CCF6DF200700903 /* GraphData.m in Sources */,
+				42467C621CCF675800700903 /* LineGraph.m in Sources */,
+				42467C5D1CCF66E700700903 /* AppCommon.m in Sources */,
 				42467C2F1CCF650000700903 /* ViewController.m in Sources */,
 				42467C2C1CCF650000700903 /* AppDelegate.m in Sources */,
+				42467C701CCF707200700903 /* GraphScale.m in Sources */,
 				42467C291CCF650000700903 /* main.m in Sources */,
+				42467C9B1CD0D3D300700903 /* FirstViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,6 +505,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = GraphKit/PrefixHeader.pch;
 				INFOPLIST_FILE = GraphKit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = sunil.rzt.GraphKit;
@@ -426,6 +517,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = GraphKit/PrefixHeader.pch;
 				INFOPLIST_FILE = GraphKit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = sunil.rzt.GraphKit;
