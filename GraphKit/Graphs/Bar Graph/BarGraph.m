@@ -182,6 +182,7 @@
 
 - (void)drawBarGraph
 {
-    
+    //Creating Bar graph
+//    CAShapeLayer
 }
 @end

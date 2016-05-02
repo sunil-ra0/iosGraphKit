@@ -106,6 +106,8 @@
         }
         iy = iy - self.spacingY;
     }
+    
+    [self.gradientLayer setFrame:CGRectMake(STARTING_X, ENDING_Y, TOTAL_X_DIST, TOTAL_Y_DIST)];
 }
 
 #pragma mark - data creation methods
@@ -200,14 +202,14 @@
         [graph addLineToPoint:[[self.coordinatePointsArray objectAtIndex:i] CGPointValue]];
         
         //**********  Drawing graph points ************ //
-        self.graphPoint = [[UIView alloc]init];
-        self.graphPoint.layer.borderColor = [UIColor whiteColor].CGColor;
-        self.graphPoint.layer.borderWidth = 1;
-        self.graphPoint.backgroundColor = [UIColor redColor];
-        [self.graphPoint setFrame:CGRectMake(0, 0, GRAPH_POINT_DIA, GRAPH_POINT_DIA)];
-        self.graphPoint.layer.cornerRadius = GRAPH_POINT_DIA/2;
-        self.graphPoint.center = [[self.coordinatePointsArray objectAtIndex:i] CGPointValue];
-        [self addSubview:self.graphPoint];
+//        self.graphPoint = [[UIView alloc]init];
+//        self.graphPoint.layer.borderColor = [UIColor whiteColor].CGColor;
+//        self.graphPoint.layer.borderWidth = 1;
+//        self.graphPoint.backgroundColor = [UIColor redColor];
+//        [self.graphPoint setFrame:CGRectMake(0, 0, GRAPH_POINT_DIA, GRAPH_POINT_DIA)];
+//        self.graphPoint.layer.cornerRadius = GRAPH_POINT_DIA/2;
+//        self.graphPoint.center = [[self.coordinatePointsArray objectAtIndex:i] CGPointValue];
+//        [self addSubview:self.graphPoint];
         /***********************************************/
     }
     
@@ -238,6 +240,21 @@
     self.gradientLayer.colors = [NSArray arrayWithObjects:(id)[[UIColor greenColor] CGColor], (id)[[UIColor yellowColor] CGColor],(id)[[UIColor redColor] CGColor], nil];;
     [graphLine setMask:self.gradientMask];
     [graphLine addSublayer:self.gradientLayer];
+    
+    //constants
+    CFTimeInterval animationDelay = 3;
+    
+    //Animating the graph path
+    CABasicAnimation *drawAnimation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
+    drawAnimation.duration = animationDelay;
+    drawAnimation.repeatCount = 1.0;  // Animate only once..
+    
+    // Animate from no part of the stroke being drawn to the entire stroke being drawn
+    drawAnimation.fromValue = [NSNumber numberWithFloat:0.0f];
+    drawAnimation.toValue   = [NSNumber numberWithFloat:1.0f];
+    
+    // Add the animation to the graph
+    [self.gradientMask addAnimation:drawAnimation forKey:@"drawCircleAnimation"];
 
 }
 
