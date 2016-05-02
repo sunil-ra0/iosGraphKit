@@ -15,6 +15,8 @@
 #define STARTING_Y          VIEW_BOUNDS_HEIGHT * 0.85
 #define ENDING_Y            VIEW_BOUNDS_HEIGHT * 0.05
 
+//#define BAR_GRAPH_WIDTH     VIEW_BOUNDS_WIDTH * 0.05
+
 @interface BarGraph()
 
 @property (nonatomic,strong) NSArray *dataArray;
@@ -117,7 +119,6 @@
         
         [self.coordinatePointsArray addObject:[NSValue valueWithCGPoint:coordinate]];
     }
-
 }
 
 #pragma  mark - graph drawing methods
@@ -171,7 +172,6 @@
 
 - (UILabel *)createGraphLayoutLabelMarkingsWithValue:(float)i
 {
-    
     UILabel *marking = [[UILabel alloc] init];
     marking.textColor = GRAPH_LABEL_COLOR;
     marking.textAlignment = NSTextAlignmentLeft;
@@ -183,6 +183,53 @@
 - (void)drawBarGraph
 {
     //Creating Bar graph
-//    CAShapeLayer
+    for (NSValue *pointData in self.coordinatePointsArray)
+    {
+        UIBezierPath *barGraphPath = [[UIBezierPath alloc] init];
+        [barGraphPath moveToPoint:CGPointMake([pointData CGPointValue].x, STARTING_Y)];
+        [barGraphPath addLineToPoint:CGPointMake([pointData CGPointValue].x, [pointData CGPointValue].y)];
+        
+        CAShapeLayer *barShapeLayer = [CAShapeLayer layer];
+        barShapeLayer.fillColor = [[UIColor clearColor] CGColor];
+        barShapeLayer.strokeColor = [GRAPH_LINE_COLOR CGColor];
+        barShapeLayer.lineWidth = self.spacingX/2;
+        barShapeLayer.path = [barGraphPath CGPath];
+        [self.layer addSublayer:barShapeLayer];
+        
+        //Creating gradient mask
+        CAShapeLayer *gradientMask = [CAShapeLayer layer];
+        gradientMask.fillColor = [[UIColor clearColor] CGColor];
+        gradientMask.strokeColor = [[UIColor blackColor] CGColor];
+        gradientMask.lineWidth = self.spacingX/2;
+        gradientMask.path = barShapeLayer.path;
+        
+        //Creating Gradient Color layer for grah line
+        CAGradientLayer *gradientLayer = [CAGradientLayer layer];
+        gradientLayer.startPoint = CGPointMake(1.0,0.0);
+        gradientLayer.endPoint = CGPointMake(1.0,1.0);
+        
+        gradientLayer.masksToBounds = YES;
+        gradientLayer.colors = [NSArray arrayWithObjects:(id)[[UIColor greenColor] CGColor], (id)[[UIColor yellowColor] CGColor],(id)[[UIColor redColor] CGColor], nil];;
+        gradientLayer.frame = CGRectMake(STARTING_X, STARTING_Y, TOTAL_X_DIST, -TOTAL_Y_DIST);
+        
+        [barShapeLayer setMask:gradientMask];
+        [barShapeLayer addSublayer:gradientLayer];
+        
+        CFTimeInterval animationDelay = 1;
+        
+        //Animating the graph path
+        CABasicAnimation *drawAnimation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
+        drawAnimation.duration = animationDelay;
+        drawAnimation.repeatCount = 1.0;  // Animate only once..
+        
+        // Animate from no part of the stroke being drawn to the entire stroke being drawn
+        drawAnimation.fromValue = [NSNumber numberWithFloat:0.0f];
+        drawAnimation.toValue   = [NSNumber numberWithFloat:1.0f];
+        
+        // Add the animation to the graph
+        [gradientMask addAnimation:drawAnimation forKey:@"drawCircleAnimation"];
+        
+    }
 }
+
 @end
