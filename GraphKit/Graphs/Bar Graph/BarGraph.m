@@ -1,12 +1,12 @@
 //
-//  LineGraph.m
+//  BarGraph.m
 //  GraphKit
 //
-//  Created by Sunil Rao on 26/04/16.
+//  Created by Sunil Rao on 02/05/16.
 //  Copyright © 2016 Sunil Rao. All rights reserved.
 //
 
-#import "LineGraph.h"
+#import "BarGraph.h"
 
 #define TOTAL_X_DIST        VIEW_BOUNDS_WIDTH * 0.85
 #define TOTAL_Y_DIST        VIEW_BOUNDS_HEIGHT * 0.80
@@ -15,9 +15,7 @@
 #define STARTING_Y          VIEW_BOUNDS_HEIGHT * 0.85
 #define ENDING_Y            VIEW_BOUNDS_HEIGHT * 0.05
 
-#define GRAPH_POINT_DIA     TOTAL_X_DIST * 0.03
-
-@interface LineGraph()
+@interface BarGraph()
 
 @property (nonatomic,strong) NSArray *dataArray;
 @property (nonatomic,strong) GraphScale *scale;
@@ -28,14 +26,10 @@
 @property (nonatomic,strong)NSMutableArray *xDataLable;
 @property (nonatomic,strong)NSMutableArray *yDataLable;
 @property (nonatomic,strong) CAShapeLayer *graphLayout;
-@property (nonatomic,strong) UILabel *xAxisTitleLabel, *yAxisTitleLabel;
-@property (nonnull,strong) UIView *graphPoint;
-@property (nonatomic,strong) CAShapeLayer *gradientMask;
-@property (nonatomic,strong) CAGradientLayer *gradientLayer;
 
 @end
 
-@implementation LineGraph
+@implementation BarGraph
 
 //Initializing data
 - (instancetype)initWithDataSource:(NSArray *)dataArray graphScale:(GraphScale *)scale andGraphLayoutNeeded:(BOOL)layoutNeeded;
@@ -54,9 +48,8 @@
         self.yDataLable = [[NSMutableArray alloc]init];
         self.coordinatePointsArray = [[NSMutableArray alloc]init];
         
-        self.gradientLayer = [[CAGradientLayer alloc]init];
-        self.gradientMask = [[CAShapeLayer alloc]init];
-
+//        self.gradientLayer = [[CAGradientLayer alloc]init];
+//        self.gradientMask = [[CAShapeLayer alloc]init];
         
     }
     
@@ -74,7 +67,7 @@
         [self createGraphLayout];
     }
     
-    [self drawLineGraph];
+    [self drawBarGraph];
 }
 
 - (void)layoutSubviews
@@ -124,6 +117,7 @@
         
         [self.coordinatePointsArray addObject:[NSValue valueWithCGPoint:coordinate]];
     }
+
 }
 
 #pragma  mark - graph drawing methods
@@ -158,7 +152,7 @@
     {
         [label removeFromSuperview];
     }
-
+    
     [self.xDataLable removeAllObjects];
     [self.yDataLable removeAllObjects];
     
@@ -186,59 +180,8 @@
     return marking;
 }
 
-- (void)drawLineGraph
+- (void)drawBarGraph
 {
-    //creating graph path
-    UIBezierPath *graph = [[UIBezierPath alloc]init];
-    [graph setLineWidth:GRAPH_LINE_WIDTH];
-    [GRAPH_LINE_COLOR setStroke];
-    [graph moveToPoint:[[self.coordinatePointsArray objectAtIndex:0] CGPointValue]];
-
     
-    for (NSUInteger i=0 ; i < [self.coordinatePointsArray count]; i++)
-    {
-        [graph addLineToPoint:[[self.coordinatePointsArray objectAtIndex:i] CGPointValue]];
-        
-        //**********  Drawing graph points ************ //
-        self.graphPoint = [[UIView alloc]init];
-        self.graphPoint.layer.borderColor = [UIColor whiteColor].CGColor;
-        self.graphPoint.layer.borderWidth = 1;
-        self.graphPoint.backgroundColor = [UIColor redColor];
-        [self.graphPoint setFrame:CGRectMake(0, 0, GRAPH_POINT_DIA, GRAPH_POINT_DIA)];
-        self.graphPoint.layer.cornerRadius = GRAPH_POINT_DIA/2;
-        self.graphPoint.center = [[self.coordinatePointsArray objectAtIndex:i] CGPointValue];
-        [self addSubview:self.graphPoint];
-        /***********************************************/
-    }
-    
-    
-    //Drawing Line graph with Gradient mask
-    
-    //drawing graph
-    CAShapeLayer *graphLine = [CAShapeLayer layer];
-    graphLine.fillColor = [[UIColor clearColor] CGColor];
-    graphLine.strokeColor = [GRAPH_LINE_COLOR CGColor];
-    graphLine.lineWidth = GRAPH_LINE_WIDTH;
-    graphLine.path = [graph CGPath];
-    [self.layer addSublayer:graphLine];
-    
-    //Creating gradient mask
-    self.gradientMask = [CAShapeLayer layer];
-    self.gradientMask.fillColor = [[UIColor clearColor] CGColor];
-    self.gradientMask.strokeColor = [[UIColor blackColor] CGColor];
-    self.gradientMask.lineWidth = GRAPH_LINE_WIDTH;
-    self.gradientMask.path = graphLine.path;
-    
-    //Creating Gradient Color layer for grah line
-    self.gradientLayer = [CAGradientLayer layer];
-    self.gradientLayer.startPoint = CGPointMake(1.0,0.0);
-    self.gradientLayer.endPoint = CGPointMake(1.0,1.0);
-    
-    self.gradientLayer.masksToBounds = YES;
-    self.gradientLayer.colors = [NSArray arrayWithObjects:(id)[[UIColor greenColor] CGColor], (id)[[UIColor yellowColor] CGColor],(id)[[UIColor redColor] CGColor], nil];;
-    [graphLine setMask:self.gradientMask];
-    [graphLine addSublayer:self.gradientLayer];
-
 }
-
 @end

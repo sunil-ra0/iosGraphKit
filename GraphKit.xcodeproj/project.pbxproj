@@ -22,6 +22,8 @@
 		42467C6C1CCF6F0100700903 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42467C6B1CCF6F0100700903 /* QuartzCore.framework */; };
 		42467C701CCF707200700903 /* GraphScale.m in Sources */ = {isa = PBXBuildFile; fileRef = 42467C6F1CCF707200700903 /* GraphScale.m */; };
 		42467C9B1CD0D3D300700903 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42467C9A1CD0D3D300700903 /* FirstViewController.m */; };
+		42467C9E1CD757B500700903 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42467C9D1CD757B500700903 /* SecondViewController.m */; };
+		42467CA21CD757F600700903 /* BarGraph.m in Sources */ = {isa = PBXBuildFile; fileRef = 42467CA11CD757F600700903 /* BarGraph.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +74,10 @@
 		42467C731CCF834300700903 /* DesignSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DesignSheet.h; path = Utilities/DesignSheet.h; sourceTree = "<group>"; };
 		42467C991CD0D3D300700903 /* FirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FirstViewController.h; path = "View Controllers/FirstViewController.h"; sourceTree = "<group>"; };
 		42467C9A1CD0D3D300700903 /* FirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FirstViewController.m; path = "View Controllers/FirstViewController.m"; sourceTree = "<group>"; };
+		42467C9C1CD757B500700903 /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecondViewController.h; path = "View Controllers/SecondViewController.h"; sourceTree = "<group>"; };
+		42467C9D1CD757B500700903 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SecondViewController.m; path = "View Controllers/SecondViewController.m"; sourceTree = "<group>"; };
+		42467CA01CD757F600700903 /* BarGraph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BarGraph.h; path = "Graphs/Bar Graph/BarGraph.h"; sourceTree = "<group>"; };
+		42467CA11CD757F600700903 /* BarGraph.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BarGraph.m; path = "Graphs/Bar Graph/BarGraph.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +188,7 @@
 		42467C5E1CCF66FA00700903 /* Graphs */ = {
 			isa = PBXGroup;
 			children = (
+				42467C9F1CD757D400700903 /* Bar Graph */,
 				42467C5F1CCF671700700903 /* Line Graph */,
 			);
 			name = Graphs;
@@ -221,8 +228,19 @@
 			children = (
 				42467C991CD0D3D300700903 /* FirstViewController.h */,
 				42467C9A1CD0D3D300700903 /* FirstViewController.m */,
+				42467C9C1CD757B500700903 /* SecondViewController.h */,
+				42467C9D1CD757B500700903 /* SecondViewController.m */,
 			);
 			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		42467C9F1CD757D400700903 /* Bar Graph */ = {
+			isa = PBXGroup;
+			children = (
+				42467CA01CD757F600700903 /* BarGraph.h */,
+				42467CA11CD757F600700903 /* BarGraph.m */,
+			);
+			name = "Bar Graph";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -355,7 +373,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42467C9E1CD757B500700903 /* SecondViewController.m in Sources */,
 				42467C681CCF6DF200700903 /* GraphData.m in Sources */,
+				42467CA21CD757F600700903 /* BarGraph.m in Sources */,
 				42467C621CCF675800700903 /* LineGraph.m in Sources */,
 				42467C5D1CCF66E700700903 /* AppCommon.m in Sources */,
 				42467C2F1CCF650000700903 /* ViewController.m in Sources */,
@@ -590,6 +610,7 @@
 				42467C531CCF650000700903 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		42467C541CCF650000700903 /* Build configuration list for PBXNativeTarget "GraphKitTests" */ = {
 			isa = XCConfigurationList;
@@ -598,6 +619,7 @@
 				42467C561CCF650000700903 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		42467C571CCF650000700903 /* Build configuration list for PBXNativeTarget "GraphKitUITests" */ = {
 			isa = XCConfigurationList;
@@ -606,6 +628,7 @@
 				42467C591CCF650000700903 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

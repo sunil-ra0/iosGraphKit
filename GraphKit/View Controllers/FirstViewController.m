@@ -43,14 +43,14 @@
         [dataSource addObject:(id)data];
     }
     
-    self.lineGraphView = [[LineGraph alloc] initWithDataSource:nil graphScale:graphScale andGraphLayoutNeeded:YES];
+    self.lineGraphView = [[LineGraph alloc] initWithDataSource:dataSource graphScale:graphScale andGraphLayoutNeeded:YES];
     [self.view addSubview:self.lineGraphView];
 }
 
 - (void) viewDidLayoutSubviews
 {
     [super viewDidLayoutSubviews];
-    self.lineGraphView.frame = self.view.frame;
+    self.lineGraphView.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y, self.view.frame.size.width, self.view.frame.size.height - self.tabBarController.tabBar.frame.size.height);
     
 }
 

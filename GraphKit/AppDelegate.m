@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "FirstViewController.h"
+#import "SecondViewController.h"
 
 @interface AppDelegate ()
 
@@ -24,7 +25,9 @@
     
     FirstViewController *fvc = [[FirstViewController alloc] init];
     
-    tabBarController.viewControllers = @[fvc];
+    SecondViewController *svc = [[SecondViewController alloc] init];
+    
+    tabBarController.viewControllers = @[fvc,svc];
     
     self.window.rootViewController = tabBarController;
     
