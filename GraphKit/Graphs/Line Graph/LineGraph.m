@@ -41,6 +41,7 @@
         self.dataArray = dataArray;
         self.scale = scale;
         self.isLayoutNeeded = layoutNeeded;
+        //To redraw the shapes in drawRect
         [self setContentMode:UIViewContentModeRedraw];
         
         self.xDataLable = [[NSMutableArray alloc]init];
@@ -216,7 +217,7 @@
     CFTimeInterval animationDelay = 3;
     
     //Animating the graph path
-    CABasicAnimation *drawAnimation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
+    CABasicAnimation *drawAnimation = [CABasicAnimation animationWithKeyPath:STROKE_END_KEY_PATH];
     drawAnimation.duration = animationDelay;
     drawAnimation.repeatCount = 1.0;  // Animate only once..
     
@@ -225,7 +226,7 @@
     drawAnimation.toValue   = [NSNumber numberWithFloat:1.0f];
     
     // Add the animation to the graph
-    [self.gradientMask addAnimation:drawAnimation forKey:@"drawCircleAnimation"];
+    [self.gradientMask addAnimation:drawAnimation forKey:DRAW_CIRCLE_ANIM_KEY_PATH];
 
 }
 

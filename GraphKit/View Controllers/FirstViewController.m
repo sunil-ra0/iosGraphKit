@@ -19,7 +19,7 @@
 
 - (void)loadView
 {
-    [super loadView];
+    self.view = [[UIView alloc] init];
     
     [self.tabBarItem setTitle:@"Line Graph"];
     
