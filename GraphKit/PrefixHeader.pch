@@ -13,7 +13,10 @@
 
 #ifdef __OBJC__
 
+#import <UIKit/UIKit.h>
 #import "DesignSheet.h"
 #import "AppCommon.h"
+#import "CommonHeaders.h"
+#import "UtilityFunctions.h"
 
 #endif

@@ -23,6 +23,7 @@
 		42467C9B1CD0D3D300700903 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42467C9A1CD0D3D300700903 /* FirstViewController.m */; };
 		42467C9E1CD757B500700903 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42467C9D1CD757B500700903 /* SecondViewController.m */; };
 		42467CA21CD757F600700903 /* BarGraph.m in Sources */ = {isa = PBXBuildFile; fileRef = 42467CA11CD757F600700903 /* BarGraph.m */; };
+		429E48CA1CED82AB00A07946 /* UtilityFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 429E48C91CED82AB00A07946 /* UtilityFunctions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,9 @@
 		42467C9D1CD757B500700903 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SecondViewController.m; path = "View Controllers/SecondViewController.m"; sourceTree = "<group>"; };
 		42467CA01CD757F600700903 /* BarGraph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BarGraph.h; path = "Graphs/Bar Graph/BarGraph.h"; sourceTree = "<group>"; };
 		42467CA11CD757F600700903 /* BarGraph.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BarGraph.m; path = "Graphs/Bar Graph/BarGraph.m"; sourceTree = "<group>"; };
+		429E48C41CECC74D00A07946 /* CommonHeaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommonHeaders.h; path = Utilities/CommonHeaders.h; sourceTree = "<group>"; };
+		429E48C81CED82AB00A07946 /* UtilityFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UtilityFunctions.h; path = Utilities/UtilityFunctions.h; sourceTree = "<group>"; };
+		429E48C91CED82AB00A07946 /* UtilityFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UtilityFunctions.m; path = Utilities/UtilityFunctions.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +180,9 @@
 				42467C5B1CCF66E700700903 /* AppCommon.h */,
 				42467C5C1CCF66E700700903 /* AppCommon.m */,
 				42467C731CCF834300700903 /* DesignSheet.h */,
+				429E48C41CECC74D00A07946 /* CommonHeaders.h */,
+				429E48C81CED82AB00A07946 /* UtilityFunctions.h */,
+				429E48C91CED82AB00A07946 /* UtilityFunctions.m */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -368,6 +375,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				429E48CA1CED82AB00A07946 /* UtilityFunctions.m in Sources */,
 				42467C9E1CD757B500700903 /* SecondViewController.m in Sources */,
 				42467C681CCF6DF200700903 /* GraphData.m in Sources */,
 				42467CA21CD757F600700903 /* BarGraph.m in Sources */,

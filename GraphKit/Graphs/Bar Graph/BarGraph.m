@@ -8,13 +8,6 @@
 
 #import "BarGraph.h"
 
-#define TOTAL_X_DIST        VIEW_BOUNDS_WIDTH * 0.85
-#define TOTAL_Y_DIST        VIEW_BOUNDS_HEIGHT * 0.80
-#define STARTING_X          VIEW_BOUNDS_WIDTH * 0.10
-#define ENDING_X            VIEW_BOUNDS_WIDTH * 0.95
-#define STARTING_Y          VIEW_BOUNDS_HEIGHT * 0.85
-#define ENDING_Y            VIEW_BOUNDS_HEIGHT * 0.05
-
 //#define BAR_GRAPH_WIDTH     VIEW_BOUNDS_WIDTH * 0.05
 
 @interface BarGraph()
@@ -49,10 +42,6 @@
         self.xDataLable = [[NSMutableArray alloc]init];
         self.yDataLable = [[NSMutableArray alloc]init];
         self.coordinatePointsArray = [[NSMutableArray alloc]init];
-        
-//        self.gradientLayer = [[CAGradientLayer alloc]init];
-//        self.gradientMask = [[CAShapeLayer alloc]init];
-        
     }
     
     return self;
@@ -131,17 +120,12 @@
     UIBezierPath *graphPath = [[UIBezierPath alloc]init];
     
     [graphPath setLineWidth:LAYOUT_BORDER_THICKNESS];
-    [[UIColor blackColor] setStroke];
     [graphPath moveToPoint:CGPointMake(ENDING_X, STARTING_Y)];
     [graphPath addLineToPoint:CGPointMake(STARTING_X, STARTING_Y)];
     [graphPath addLineToPoint:CGPointMake(STARTING_X, ENDING_Y)];
     
     //Creating graph layout
-    self.graphLayout = [CAShapeLayer layer];
-    self.graphLayout.fillColor = [[UIColor clearColor] CGColor];
-    self.graphLayout.strokeColor = [GRAPH_LAYOUT_COLOR CGColor];
-    self.graphLayout.lineWidth = GRAPH_LAYOUT_LINE_THICKNESS;
-    self.graphLayout.path = [graphPath CGPath];
+    self.graphLayout = [[UtilityFunctions sharedUtilityFunctions] createShapeLayerWithFillColor:[UIColor clearColor] StrokeColor:GRAPH_LAYOUT_COLOR LineWidth:GRAPH_LAYOUT_LINE_THICKNESS andPathRef:[graphPath CGPath]];
     [self.layer addSublayer:self.graphLayout];
     
     //Remove old label data
@@ -189,29 +173,14 @@
         [barGraphPath moveToPoint:CGPointMake([pointData CGPointValue].x, STARTING_Y)];
         [barGraphPath addLineToPoint:CGPointMake([pointData CGPointValue].x, [pointData CGPointValue].y)];
         
-        CAShapeLayer *barShapeLayer = [CAShapeLayer layer];
-        barShapeLayer.fillColor = [[UIColor clearColor] CGColor];
-        barShapeLayer.strokeColor = [GRAPH_LINE_COLOR CGColor];
-        barShapeLayer.lineWidth = self.spacingX/2;
-        barShapeLayer.path = [barGraphPath CGPath];
+        CAShapeLayer *barShapeLayer = [[UtilityFunctions sharedUtilityFunctions] createShapeLayerWithFillColor:[UIColor clearColor] StrokeColor:GRAPH_LINE_COLOR LineWidth:self.spacingX/2 andPathRef:[barGraphPath CGPath]];
         [self.layer addSublayer:barShapeLayer];
         
         //Creating gradient mask
-        CAShapeLayer *gradientMask = [CAShapeLayer layer];
-        gradientMask.fillColor = [[UIColor clearColor] CGColor];
-        gradientMask.strokeColor = [[UIColor blackColor] CGColor];
-        gradientMask.lineWidth = self.spacingX/2;
-        gradientMask.path = barShapeLayer.path;
+        CAShapeLayer *gradientMask = [[UtilityFunctions sharedUtilityFunctions] createShapeLayerWithFillColor:[UIColor clearColor] StrokeColor:[UIColor blackColor] LineWidth:self.spacingX/2 andPathRef:barShapeLayer.path];
         
         //Creating Gradient Color layer for grah line
-        CAGradientLayer *gradientLayer = [CAGradientLayer layer];
-        gradientLayer.startPoint = CGPointMake(1.0,0.0);
-        gradientLayer.endPoint = CGPointMake(1.0,1.0);
-        
-        gradientLayer.masksToBounds = YES;
-        gradientLayer.colors = [NSArray arrayWithObjects:(id)[[UIColor greenColor] CGColor], (id)[[UIColor yellowColor] CGColor],(id)[[UIColor redColor] CGColor], nil];;
-        gradientLayer.frame = CGRectMake(STARTING_X, STARTING_Y, TOTAL_X_DIST, -TOTAL_Y_DIST);
-        
+        CAGradientLayer *gradientLayer = [[UtilityFunctions sharedUtilityFunctions] createGradientLayerWithStartPoint:CGPointMake(1.0,0.0) Endpoint:CGPointMake(1.0,1.0) ColorsArray:[NSArray arrayWithObjects:(id)[[UIColor greenColor] CGColor], (id)[[UIColor yellowColor] CGColor],(id)[[UIColor redColor] CGColor], nil] andFrame:CGRectMake(STARTING_X, STARTING_Y, TOTAL_X_DIST, -TOTAL_Y_DIST)];;
         [barShapeLayer setMask:gradientMask];
         [barShapeLayer addSublayer:gradientLayer];
         

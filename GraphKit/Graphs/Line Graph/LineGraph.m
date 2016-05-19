@@ -8,13 +8,6 @@
 
 #import "LineGraph.h"
 
-#define TOTAL_X_DIST        VIEW_BOUNDS_WIDTH * 0.85
-#define TOTAL_Y_DIST        VIEW_BOUNDS_HEIGHT * 0.80
-#define STARTING_X          VIEW_BOUNDS_WIDTH * 0.10
-#define ENDING_X            VIEW_BOUNDS_WIDTH * 0.95
-#define STARTING_Y          VIEW_BOUNDS_HEIGHT * 0.85
-#define ENDING_Y            VIEW_BOUNDS_HEIGHT * 0.05
-
 #define GRAPH_POINT_DIA     TOTAL_X_DIST * 0.03
 
 @interface LineGraph()
@@ -53,11 +46,6 @@
         self.xDataLable = [[NSMutableArray alloc]init];
         self.yDataLable = [[NSMutableArray alloc]init];
         self.coordinatePointsArray = [[NSMutableArray alloc]init];
-        
-        self.gradientLayer = [[CAGradientLayer alloc]init];
-        self.gradientMask = [[CAShapeLayer alloc]init];
-
-        
     }
     
     return self;
@@ -138,17 +126,12 @@
     UIBezierPath *graphPath = [[UIBezierPath alloc]init];
     
     [graphPath setLineWidth:LAYOUT_BORDER_THICKNESS];
-    [[UIColor blackColor] setStroke];
     [graphPath moveToPoint:CGPointMake(ENDING_X, STARTING_Y)];
     [graphPath addLineToPoint:CGPointMake(STARTING_X, STARTING_Y)];
     [graphPath addLineToPoint:CGPointMake(STARTING_X, ENDING_Y)];
     
     //Creating graph layout
-    self.graphLayout = [CAShapeLayer layer];
-    self.graphLayout.fillColor = [[UIColor clearColor] CGColor];
-    self.graphLayout.strokeColor = [GRAPH_LAYOUT_COLOR CGColor];
-    self.graphLayout.lineWidth = GRAPH_LAYOUT_LINE_THICKNESS;
-    self.graphLayout.path = [graphPath CGPath];
+    self.graphLayout = [[UtilityFunctions sharedUtilityFunctions] createShapeLayerWithFillColor:[UIColor clearColor] StrokeColor:GRAPH_LAYOUT_COLOR LineWidth:GRAPH_LAYOUT_LINE_THICKNESS andPathRef:[graphPath CGPath]];
     [self.layer addSublayer:self.graphLayout];
     
     //Remove old label data
@@ -217,27 +200,15 @@
     //Drawing Line graph with Gradient mask
     
     //drawing graph
-    CAShapeLayer *graphLine = [CAShapeLayer layer];
-    graphLine.fillColor = [[UIColor clearColor] CGColor];
-    graphLine.strokeColor = [GRAPH_LINE_COLOR CGColor];
-    graphLine.lineWidth = GRAPH_LINE_WIDTH;
-    graphLine.path = [graph CGPath];
+    CAShapeLayer *graphLine = [[UtilityFunctions sharedUtilityFunctions] createShapeLayerWithFillColor:[UIColor clearColor] StrokeColor:GRAPH_LINE_COLOR LineWidth:GRAPH_LINE_WIDTH andPathRef:[graph CGPath]];
     [self.layer addSublayer:graphLine];
     
     //Creating gradient mask
-    self.gradientMask = [CAShapeLayer layer];
-    self.gradientMask.fillColor = [[UIColor clearColor] CGColor];
-    self.gradientMask.strokeColor = [[UIColor blackColor] CGColor];
-    self.gradientMask.lineWidth = GRAPH_LINE_WIDTH;
+    self.gradientMask = [[UtilityFunctions sharedUtilityFunctions] createShapeLayerWithFillColor:[UIColor clearColor] StrokeColor:[UIColor blackColor] LineWidth:GRAPH_LINE_WIDTH andPathRef:graphLine.path];
     self.gradientMask.path = graphLine.path;
     
     //Creating Gradient Color layer for grah line
-    self.gradientLayer = [CAGradientLayer layer];
-    self.gradientLayer.startPoint = CGPointMake(1.0,0.0);
-    self.gradientLayer.endPoint = CGPointMake(1.0,1.0);
-    
-    self.gradientLayer.masksToBounds = YES;
-    self.gradientLayer.colors = [NSArray arrayWithObjects:(id)[[UIColor greenColor] CGColor], (id)[[UIColor yellowColor] CGColor],(id)[[UIColor redColor] CGColor], nil];;
+    self.gradientLayer = [[UtilityFunctions sharedUtilityFunctions] createGradientLayerWithStartPoint:CGPointMake(1.0,0.0) Endpoint:CGPointMake(1.0,1.0) ColorsArray:[NSArray arrayWithObjects:(id)[[UIColor greenColor] CGColor], (id)[[UIColor yellowColor] CGColor],(id)[[UIColor redColor] CGColor], nil] andFrame:CGRectZero];
     [graphLine setMask:self.gradientMask];
     [graphLine addSublayer:self.gradientLayer];
     
@@ -257,5 +228,8 @@
     [self.gradientMask addAnimation:drawAnimation forKey:@"drawCircleAnimation"];
 
 }
+
+
+
 
 @end
