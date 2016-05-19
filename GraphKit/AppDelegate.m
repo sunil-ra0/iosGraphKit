@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "FirstViewController.h"
+#import "SecondViewController.h"
 
 @interface AppDelegate ()
 
@@ -15,8 +17,20 @@
 @implementation AppDelegate
 
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+    self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
+    
+    UITabBarController *tabBarController = [[UITabBarController alloc] init];
+    
+    FirstViewController *fvc = [[FirstViewController alloc] init];
+    
+    SecondViewController *svc = [[SecondViewController alloc] init];
+    
+    tabBarController.viewControllers = @[fvc,svc];
+    
+    self.window.rootViewController = tabBarController;
+    
     return YES;
 }
 

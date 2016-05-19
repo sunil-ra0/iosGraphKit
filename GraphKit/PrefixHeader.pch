@@ -1,0 +1,22 @@
+//
+//  PrefixHeader.pch
+//  GraphKit
+//
+//  Created by Sunil Rao on 26/04/16.
+//  Copyright © 2016 Sunil Rao. All rights reserved.
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_5_0
+#endif
+
+#ifdef __OBJC__
+
+#import <UIKit/UIKit.h>
+#import "DesignSheet.h"
+#import "AppCommon.h"
+#import "CommonHeaders.h"
+#import "UtilityFunctions.h"
+
+#endif

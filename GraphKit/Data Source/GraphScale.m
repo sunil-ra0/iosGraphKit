@@ -1,15 +1,13 @@
 //
-//  ViewController.h
+//  GraphScale.m
 //  GraphKit
 //
 //  Created by Sunil Rao on 26/04/16.
 //  Copyright © 2016 Sunil Rao. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "GraphScale.h"
 
-@interface ViewController : UIViewController
-
+@implementation GraphScale
 
 @end
-
