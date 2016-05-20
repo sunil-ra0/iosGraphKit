@@ -24,6 +24,8 @@
 		42467C9E1CD757B500700903 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42467C9D1CD757B500700903 /* SecondViewController.m */; };
 		42467CA21CD757F600700903 /* BarGraph.m in Sources */ = {isa = PBXBuildFile; fileRef = 42467CA11CD757F600700903 /* BarGraph.m */; };
 		429E48CA1CED82AB00A07946 /* UtilityFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 429E48C91CED82AB00A07946 /* UtilityFunctions.m */; };
+		429E48D21CEDF0D600A07946 /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 429E48D11CEDF0D600A07946 /* ThirdViewController.m */; };
+		429E48D61CEDF15900A07946 /* PieGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 429E48D51CEDF15900A07946 /* PieGraphView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +81,10 @@
 		429E48C41CECC74D00A07946 /* CommonHeaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommonHeaders.h; path = Utilities/CommonHeaders.h; sourceTree = "<group>"; };
 		429E48C81CED82AB00A07946 /* UtilityFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UtilityFunctions.h; path = Utilities/UtilityFunctions.h; sourceTree = "<group>"; };
 		429E48C91CED82AB00A07946 /* UtilityFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UtilityFunctions.m; path = Utilities/UtilityFunctions.m; sourceTree = "<group>"; };
+		429E48D01CEDF0D600A07946 /* ThirdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ThirdViewController.h; path = "View Controllers/ThirdViewController.h"; sourceTree = "<group>"; };
+		429E48D11CEDF0D600A07946 /* ThirdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ThirdViewController.m; path = "View Controllers/ThirdViewController.m"; sourceTree = "<group>"; };
+		429E48D41CEDF15900A07946 /* PieGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PieGraphView.h; path = "Graphs/Pie Graph/PieGraphView.h"; sourceTree = "<group>"; };
+		429E48D51CEDF15900A07946 /* PieGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PieGraphView.m; path = "Graphs/Pie Graph/PieGraphView.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +196,7 @@
 		42467C5E1CCF66FA00700903 /* Graphs */ = {
 			isa = PBXGroup;
 			children = (
+				429E48D31CEDF13600A07946 /* Pie Graph */,
 				42467C9F1CD757D400700903 /* Bar Graph */,
 				42467C5F1CCF671700700903 /* Line Graph */,
 			);
@@ -232,6 +239,8 @@
 				42467C9A1CD0D3D300700903 /* FirstViewController.m */,
 				42467C9C1CD757B500700903 /* SecondViewController.h */,
 				42467C9D1CD757B500700903 /* SecondViewController.m */,
+				429E48D01CEDF0D600A07946 /* ThirdViewController.h */,
+				429E48D11CEDF0D600A07946 /* ThirdViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -243,6 +252,15 @@
 				42467CA11CD757F600700903 /* BarGraph.m */,
 			);
 			name = "Bar Graph";
+			sourceTree = "<group>";
+		};
+		429E48D31CEDF13600A07946 /* Pie Graph */ = {
+			isa = PBXGroup;
+			children = (
+				429E48D41CEDF15900A07946 /* PieGraphView.h */,
+				429E48D51CEDF15900A07946 /* PieGraphView.m */,
+			);
+			name = "Pie Graph";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -379,7 +397,9 @@
 				42467C9E1CD757B500700903 /* SecondViewController.m in Sources */,
 				42467C681CCF6DF200700903 /* GraphData.m in Sources */,
 				42467CA21CD757F600700903 /* BarGraph.m in Sources */,
+				429E48D61CEDF15900A07946 /* PieGraphView.m in Sources */,
 				42467C621CCF675800700903 /* LineGraph.m in Sources */,
+				429E48D21CEDF0D600A07946 /* ThirdViewController.m in Sources */,
 				42467C5D1CCF66E700700903 /* AppCommon.m in Sources */,
 				42467C2C1CCF650000700903 /* AppDelegate.m in Sources */,
 				42467C701CCF707200700903 /* GraphScale.m in Sources */,
