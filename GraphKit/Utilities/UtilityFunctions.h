@@ -12,6 +12,8 @@
 
 +(UtilityFunctions *)sharedUtilityFunctions;
 
+- (NSArray *)createRandomDataSetOfObjects:(int)num;
+
 -(CAShapeLayer *)createShapeLayerWithFillColor:(UIColor *)fillColor StrokeColor:(UIColor *)strokeColor LineWidth:(CGFloat)lineWidth andPathRef:(CGPathRef)pathRef;
 
 - (CAGradientLayer *)createGradientLayerWithStartPoint:(CGPoint)startPoint Endpoint:(CGPoint)endPoint ColorsArray:(NSArray *)colorsArray andFrame:(CGRect)gradLayerFrame;

@@ -7,6 +7,7 @@
 //
 
 #import "UtilityFunctions.h"
+#import "GraphData.h"
 
 @implementation UtilityFunctions
 
@@ -48,5 +49,26 @@ static UtilityFunctions *sharedUtilityFunctionObject = nil;
     return gradientLayer;
 }
 
+/// Method to create random data
+- (NSArray *)createRandomDataSetOfObjects:(int)num
+{
+    NSMutableArray *dataSource = [[NSMutableArray alloc] init];
+    
+    for (float a = 0; a < num; a++)
+    {
+        GraphData *data = [[GraphData alloc] init];
+        data.x_point = a;
+        data.y_point = a * 2;
+        data.xAxisName = [NSString stringWithFormat:@"%f",a];
+        data.valueColor = [[UIColor alloc] initWithRed:arc4random()%256/256.0
+                                                 green:arc4random()%256/256.0
+                                                  blue:arc4random()%256/256.0
+                                                 alpha:1.0];
+        
+        [dataSource addObject:(id)data];
+    }
+    
+    return [dataSource copy];
+}
 
 @end

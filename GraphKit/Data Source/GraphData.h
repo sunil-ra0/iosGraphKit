@@ -16,5 +16,6 @@
 @property (nonatomic) CGFloat y_point;
 @property (nonatomic,strong) NSString *xAxisName;
 @property (nonatomic,strong) NSString *yAxisName;
+@property (nonatomic,strong) UIColor *valueColor;
 
 @end
