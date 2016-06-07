@@ -23,6 +23,9 @@
 @end
 
 @implementation BarGraph
+{
+    NSMutableArray *gradientMaskArray;
+}
 
 //Initializing data
 - (instancetype)initWithDataSource:(NSArray *)dataArray graphScale:(GraphScale *)scale andGraphLayoutNeeded:(BOOL)layoutNeeded;
@@ -31,7 +34,7 @@
     
     if (self)
     {
-        self.backgroundColor = [UIColor blackColor];
+        self.backgroundColor = [UIColor whiteColor];
         self.dataArray = dataArray;
         self.scale = scale;
         self.isLayoutNeeded = layoutNeeded;
@@ -41,6 +44,7 @@
         self.xDataLable = [[NSMutableArray alloc]init];
         self.yDataLable = [[NSMutableArray alloc]init];
         self.coordinatePointsArray = [[NSMutableArray alloc]init];
+        gradientMaskArray = [[NSMutableArray alloc] init];
     }
     
     return self;
@@ -107,6 +111,8 @@
         
         [self.coordinatePointsArray addObject:[NSValue valueWithCGPoint:coordinate]];
     }
+    
+    [self.coordinatePointsArray removeObjectAtIndex:0];
 }
 
 #pragma  mark - graph drawing methods
@@ -165,6 +171,9 @@
 
 - (void)drawBarGraph
 {
+    //Clearing the old data
+    [gradientMaskArray removeAllObjects];
+    
     //Creating Bar graph
     for (NSValue *pointData in self.coordinatePointsArray)
     {
@@ -182,8 +191,18 @@
         CAGradientLayer *gradientLayer = [[UtilityFunctions sharedUtilityFunctions] createGradientLayerWithStartPoint:CGPointMake(1.0,0.0) Endpoint:CGPointMake(1.0,1.0) ColorsArray:[NSArray arrayWithObjects:(id)[[UIColor greenColor] CGColor], (id)[[UIColor yellowColor] CGColor],(id)[[UIColor redColor] CGColor], nil] andFrame:CGRectMake(STARTING_X, STARTING_Y, TOTAL_X_DIST, -TOTAL_Y_DIST)];;
         [barShapeLayer setMask:gradientMask];
         [barShapeLayer addSublayer:gradientLayer];
-        
-        CFTimeInterval animationDelay = 1;
+        [gradientMaskArray addObject:gradientMask];
+    }
+    
+    //Animating Bar graph
+    [self animateBarGraph];
+}
+
+- (void)animateBarGraph
+{
+    for (CAShapeLayer *gradMas in gradientMaskArray)
+    {
+        CFTimeInterval animationDelay = ANIMATION_DURATION;
         
         //Animating the graph path
         CABasicAnimation *drawAnimation = [CABasicAnimation animationWithKeyPath:STROKE_END_KEY_PATH];
@@ -195,9 +214,7 @@
         drawAnimation.toValue   = [NSNumber numberWithFloat:1.0f];
         
         // Add the animation to the graph
-        [gradientMask addAnimation:drawAnimation forKey:DRAW_CIRCLE_ANIM_KEY_PATH];
-        
+        [gradMas addAnimation:drawAnimation forKey:DRAW_CIRCLE_ANIM_KEY_PATH];
     }
 }
-
 @end

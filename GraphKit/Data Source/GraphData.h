@@ -17,5 +17,6 @@
 @property (nonatomic,strong) NSString *xAxisName;
 @property (nonatomic,strong) NSString *yAxisName;
 @property (nonatomic,strong) UIColor *valueColor;
+@property (nonatomic,strong) NSString *valueDescription;
 
 @end

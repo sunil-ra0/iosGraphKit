@@ -36,17 +36,15 @@
     
     NSArray *dataSource = [[UtilityFunctions sharedUtilityFunctions] createRandomDataSetOfObjects:10];;
     
-//    for (float a = 0; a < (graphScale.max_x - graphScale.min_x); a++)
-//    {
-//        GraphData *data = [[GraphData alloc] init];
-//        data.x_point = a;
-//        data.y_point = a * 2;
-//        
-//        [dataSource addObject:(id)data];
-//    }
-    
     self.barGraphView = [[BarGraph alloc] initWithDataSource:dataSource graphScale:graphScale andGraphLayoutNeeded:YES];
     [self.view addSubview:self.barGraphView];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [self.barGraphView animateBarGraph];
 }
 
 - (void) viewDidLayoutSubviews

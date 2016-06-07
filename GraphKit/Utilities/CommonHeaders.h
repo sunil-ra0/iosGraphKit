@@ -18,6 +18,8 @@
 #define STARTING_Y          VIEW_BOUNDS_HEIGHT * 0.85
 #define ENDING_Y            VIEW_BOUNDS_HEIGHT * 0.05
 
+#define ANIMATION_DURATION              1
+
 //****** Key paths for animations *******//
 #define STROKE_END_KEY_PATH                     @"strokeEnd"
 #define DRAW_CIRCLE_ANIM_KEY_PATH               @"drawCircleAnimation"

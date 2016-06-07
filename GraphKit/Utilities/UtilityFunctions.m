@@ -58,13 +58,14 @@ static UtilityFunctions *sharedUtilityFunctionObject = nil;
     {
         GraphData *data = [[GraphData alloc] init];
         data.x_point = a;
-        data.y_point = a * 2;
+        data.y_point = rand()%20;
         data.xAxisName = [NSString stringWithFormat:@"%f",a];
         data.valueColor = [[UIColor alloc] initWithRed:arc4random()%256/256.0
                                                  green:arc4random()%256/256.0
                                                   blue:arc4random()%256/256.0
                                                  alpha:1.0];
-        
+        data.yAxisName = [NSString stringWithFormat:@"Item-%f",a];
+        data.valueDescription = [NSString stringWithFormat:@"Description of item %f",a];
         [dataSource addObject:(id)data];
     }
     

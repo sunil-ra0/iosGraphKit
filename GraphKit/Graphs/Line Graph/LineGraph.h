@@ -13,5 +13,6 @@
 @interface LineGraph : UIView
 
 - (instancetype)initWithDataSource:(NSArray *)dataArray graphScale:(GraphScale *)scale andGraphLayoutNeeded:(BOOL)layoutNeeded;
+- (void)animateLineGraph;
 
 @end
