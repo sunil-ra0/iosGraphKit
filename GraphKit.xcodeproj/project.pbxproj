@@ -26,6 +26,10 @@
 		429E48CA1CED82AB00A07946 /* UtilityFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 429E48C91CED82AB00A07946 /* UtilityFunctions.m */; };
 		429E48D21CEDF0D600A07946 /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 429E48D11CEDF0D600A07946 /* ThirdViewController.m */; };
 		429E48D61CEDF15900A07946 /* PieGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 429E48D51CEDF15900A07946 /* PieGraphView.m */; };
+		42F582DE1CFFFBDD008088B8 /* PieSlice.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F582DD1CFFFBDD008088B8 /* PieSlice.m */; };
+		42F582E41D00082F008088B8 /* PieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F582E31D00082F008088B8 /* PieChart.m */; };
+		42F582E71D006C97008088B8 /* FourthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F582E61D006C97008088B8 /* FourthViewController.m */; };
+		42F582EA1D006CCD008088B8 /* PieChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F582E91D006CCD008088B8 /* PieChartView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +89,14 @@
 		429E48D11CEDF0D600A07946 /* ThirdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ThirdViewController.m; path = "View Controllers/ThirdViewController.m"; sourceTree = "<group>"; };
 		429E48D41CEDF15900A07946 /* PieGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PieGraphView.h; path = "Graphs/Pie Graph/PieGraphView.h"; sourceTree = "<group>"; };
 		429E48D51CEDF15900A07946 /* PieGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PieGraphView.m; path = "Graphs/Pie Graph/PieGraphView.m"; sourceTree = "<group>"; };
+		42F582DC1CFFFBDD008088B8 /* PieSlice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PieSlice.h; path = "Graphs/Pie Graph/Animated Pie Chart/PieSlice.h"; sourceTree = "<group>"; };
+		42F582DD1CFFFBDD008088B8 /* PieSlice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PieSlice.m; path = "Graphs/Pie Graph/Animated Pie Chart/PieSlice.m"; sourceTree = "<group>"; };
+		42F582E21D00082F008088B8 /* PieChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PieChart.h; path = "Graphs/Pie Graph/Animated Pie Chart/PieChart.h"; sourceTree = "<group>"; };
+		42F582E31D00082F008088B8 /* PieChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PieChart.m; path = "Graphs/Pie Graph/Animated Pie Chart/PieChart.m"; sourceTree = "<group>"; };
+		42F582E51D006C97008088B8 /* FourthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FourthViewController.h; path = "View Controllers/FourthViewController.h"; sourceTree = "<group>"; };
+		42F582E61D006C97008088B8 /* FourthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FourthViewController.m; path = "View Controllers/FourthViewController.m"; sourceTree = "<group>"; };
+		42F582E81D006CCD008088B8 /* PieChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PieChartView.h; path = "Graphs/Pie Graph/Animated Pie Chart/PieChartView.h"; sourceTree = "<group>"; };
+		42F582E91D006CCD008088B8 /* PieChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PieChartView.m; path = "Graphs/Pie Graph/Animated Pie Chart/PieChartView.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -241,6 +253,8 @@
 				42467C9D1CD757B500700903 /* SecondViewController.m */,
 				429E48D01CEDF0D600A07946 /* ThirdViewController.h */,
 				429E48D11CEDF0D600A07946 /* ThirdViewController.m */,
+				42F582E51D006C97008088B8 /* FourthViewController.h */,
+				42F582E61D006C97008088B8 /* FourthViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -259,8 +273,22 @@
 			children = (
 				429E48D41CEDF15900A07946 /* PieGraphView.h */,
 				429E48D51CEDF15900A07946 /* PieGraphView.m */,
+				42F582DB1CFFFB03008088B8 /* Animated Pie Chart */,
 			);
 			name = "Pie Graph";
+			sourceTree = "<group>";
+		};
+		42F582DB1CFFFB03008088B8 /* Animated Pie Chart */ = {
+			isa = PBXGroup;
+			children = (
+				42F582DC1CFFFBDD008088B8 /* PieSlice.h */,
+				42F582DD1CFFFBDD008088B8 /* PieSlice.m */,
+				42F582E21D00082F008088B8 /* PieChart.h */,
+				42F582E31D00082F008088B8 /* PieChart.m */,
+				42F582E81D006CCD008088B8 /* PieChartView.h */,
+				42F582E91D006CCD008088B8 /* PieChartView.m */,
+			);
+			name = "Animated Pie Chart";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -396,9 +424,13 @@
 				429E48CA1CED82AB00A07946 /* UtilityFunctions.m in Sources */,
 				42467C9E1CD757B500700903 /* SecondViewController.m in Sources */,
 				42467C681CCF6DF200700903 /* GraphData.m in Sources */,
+				42F582E41D00082F008088B8 /* PieChart.m in Sources */,
+				42F582EA1D006CCD008088B8 /* PieChartView.m in Sources */,
 				42467CA21CD757F600700903 /* BarGraph.m in Sources */,
 				429E48D61CEDF15900A07946 /* PieGraphView.m in Sources */,
+				42F582E71D006C97008088B8 /* FourthViewController.m in Sources */,
 				42467C621CCF675800700903 /* LineGraph.m in Sources */,
+				42F582DE1CFFFBDD008088B8 /* PieSlice.m in Sources */,
 				429E48D21CEDF0D600A07946 /* ThirdViewController.m in Sources */,
 				42467C5D1CCF66E700700903 /* AppCommon.m in Sources */,
 				42467C2C1CCF650000700903 /* AppDelegate.m in Sources */,

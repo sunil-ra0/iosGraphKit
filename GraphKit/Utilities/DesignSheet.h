@@ -30,8 +30,8 @@
 
 //COLORS
 #define GRAPH_LINE_COLOR                [UIColor redColor]
-#define GRAPH_LAYOUT_COLOR              [UIColor whiteColor]
-#define GRAPH_LABEL_COLOR               [UIColor whiteColor]
+#define GRAPH_LAYOUT_COLOR              [UIColor blackColor]
+#define GRAPH_LABEL_COLOR               [UIColor blackColor]
 
 //DIMENSIONS
 #define GRAPH_LINE_WIDTH                2
@@ -42,7 +42,7 @@
 
 //FONTS
 #define GRAPH_LABEL_FONT_STYLE                @"Arial-BoldMT"
-#define GRAPH_LABEL_FONT_SIZE                 9
+#define GRAPH_LABEL_FONT_SIZE                 12
 
 
 #endif /* DesignSheet_h */

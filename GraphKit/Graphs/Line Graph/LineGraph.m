@@ -37,7 +37,7 @@
     
     if (self)
     {
-        self.backgroundColor = [UIColor blackColor];
+        self.backgroundColor = [UIColor lightTextColor];
         self.dataArray = dataArray;
         self.scale = scale;
         self.isLayoutNeeded = layoutNeeded;
@@ -129,7 +129,7 @@
     [graphPath setLineWidth:LAYOUT_BORDER_THICKNESS];
     [graphPath moveToPoint:CGPointMake(ENDING_X, STARTING_Y)];
     [graphPath addLineToPoint:CGPointMake(STARTING_X, STARTING_Y)];
-    [graphPath addLineToPoint:CGPointMake(STARTING_X, ENDING_Y)];
+//    [graphPath addLineToPoint:CGPointMake(STARTING_X, ENDING_Y)];
     
     //Creating graph layout
     self.graphLayout = [[UtilityFunctions sharedUtilityFunctions] createShapeLayerWithFillColor:[UIColor clearColor] StrokeColor:GRAPH_LAYOUT_COLOR LineWidth:GRAPH_LAYOUT_LINE_THICKNESS andPathRef:[graphPath CGPath]];
@@ -155,10 +155,10 @@
     }
     
     //creating y-axis data label
-    for (float i = self.scale.min_y; i <= self.scale.max_y; i = i + self.scale.y_unit)
-    {
-        [self.yDataLable addObject:[self createGraphLayoutLabelMarkingsWithValue:i]];
-    }
+//    for (float i = self.scale.min_y; i <= self.scale.max_y; i = i + self.scale.y_unit)
+//    {
+//        [self.yDataLable addObject:[self createGraphLayoutLabelMarkingsWithValue:i]];
+//    }
 }
 
 - (UILabel *)createGraphLayoutLabelMarkingsWithValue:(float)i
@@ -184,19 +184,7 @@
     for (NSUInteger i=0 ; i < [self.coordinatePointsArray count]; i++)
     {
         [graph addLineToPoint:[[self.coordinatePointsArray objectAtIndex:i] CGPointValue]];
-        
-        //**********  Drawing graph points ************ //
-//        self.graphPoint = [[UIView alloc]init];
-//        self.graphPoint.layer.borderColor = [UIColor whiteColor].CGColor;
-//        self.graphPoint.layer.borderWidth = 1;
-//        self.graphPoint.backgroundColor = [UIColor redColor];
-//        [self.graphPoint setFrame:CGRectMake(0, 0, GRAPH_POINT_DIA, GRAPH_POINT_DIA)];
-//        self.graphPoint.layer.cornerRadius = GRAPH_POINT_DIA/2;
-//        self.graphPoint.center = [[self.coordinatePointsArray objectAtIndex:i] CGPointValue];
-//        [self addSubview:self.graphPoint];
-        /***********************************************/
     }
-    
     
     //Drawing Line graph with Gradient mask
     
@@ -209,12 +197,18 @@
     self.gradientMask.path = graphLine.path;
     
     //Creating Gradient Color layer for grah line
-    self.gradientLayer = [[UtilityFunctions sharedUtilityFunctions] createGradientLayerWithStartPoint:CGPointMake(1.0,0.0) Endpoint:CGPointMake(1.0,1.0) ColorsArray:[NSArray arrayWithObjects:(id)[[UIColor greenColor] CGColor], (id)[[UIColor yellowColor] CGColor],(id)[[UIColor redColor] CGColor], nil] andFrame:CGRectZero];
+    self.gradientLayer = [[UtilityFunctions sharedUtilityFunctions] createGradientLayerWithStartPoint:CGPointMake(1.0,0.0) Endpoint:CGPointMake(1.0,1.0) ColorsArray:[NSArray arrayWithObjects:(id)[[UIColor redColor] CGColor], [(id)[UIColor blueColor] CGColor], nil] andFrame:CGRectZero];
     [graphLine setMask:self.gradientMask];
     [graphLine addSublayer:self.gradientLayer];
     
+    //Animating line graph
+    [self animateLineGraph];
+}
+
+- (void)animateLineGraph
+{
     //constants
-    CFTimeInterval animationDelay = 3;
+    CFTimeInterval animationDelay = ANIMATION_DURATION;
     
     //Animating the graph path
     CABasicAnimation *drawAnimation = [CABasicAnimation animationWithKeyPath:STROKE_END_KEY_PATH];
@@ -229,8 +223,4 @@
     [self.gradientMask addAnimation:drawAnimation forKey:DRAW_CIRCLE_ANIM_KEY_PATH];
 
 }
-
-
-
-
 @end

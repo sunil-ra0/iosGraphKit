@@ -32,7 +32,6 @@
 
 - (void)drawRect:(CGRect)rect
 {
-    [super drawRect:rect];
     self.centDataArray = [self convertDataToPercentagesFromDataArray:self.dataArray];
     
     CGFloat startAngel = 0;
@@ -65,10 +64,10 @@
     
     CGFloat totalSum = 0;
     
-    for (GraphData *graphData in self.dataArray)
+    for (GraphData *graphData in dataArray)
         totalSum += graphData.y_point;
     
-    for (GraphData *graphData in self.dataArray)
+    for (GraphData *graphData in dataArray)
     {
         GraphData *centData = [[GraphData alloc] init];
         centData.x_point = graphData.x_point;
