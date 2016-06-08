@@ -33,6 +33,7 @@
     
     FourthViewController *fovc = [[FourthViewController alloc] init];
     
+    //Adding view controllers to tab bar controller
     tabBarController.viewControllers = @[fvc,svc,tvc,fovc];
     
     self.window.rootViewController = tabBarController;
