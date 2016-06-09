@@ -23,5 +23,17 @@ Other parameters for scaling purpose
         STARTING_Y -> It is the starting point of Y Axis (Origin).
         ENDING_Y -> Ending point of Y-Axis on the screen.
 
+Line Graph with Gradient Colors based on the threshold value
 
+![screen shot 2016-06-09 at 5 42 59 pm](https://cloud.githubusercontent.com/assets/14992134/15929259/bcae223e-2e69-11e6-99f9-153c4e0ba489.png)
 
+Bar Graph with Gradient values representaiton
+
+![screen shot 2016-06-09 at 5 43 17 pm](https://cloud.githubusercontent.com/assets/14992134/15929262/bcfc7cae-2e69-11e6-97a7-96899d5dcf29.png)
+
+Pie Chart With Slice seperation animation
+
+![screen shot 2016-06-09 at 5 43 30 pm](https://cloud.githubusercontent.com/assets/14992134/15929261/bcdc75b2-2e69-11e6-835f-b9d3d254199f.png)
+
+Reference
+For Pie Chart animation : https://app.pluralsight.com/library/courses/ios-graphics-animation-programming/table-of-contents
