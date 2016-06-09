@@ -25,14 +25,14 @@
     
     //Creating data for graph
     GraphScale *graphScale = [[GraphScale alloc] init];
-    graphScale.x_unit = 5;
+    graphScale.x_unit = 1;
     graphScale.y_unit = 1;
     graphScale.min_x = 0;
-    graphScale.max_x = 30;
+    graphScale.max_x = 10;
     graphScale.min_y = 0;
     graphScale.max_y = 20;
     
-    NSArray *dataSource = [[UtilityFunctions sharedUtilityFunctions] createRandomDataSetOfObjects:30];
+    NSArray *dataSource = [[UtilityFunctions sharedUtilityFunctions] createRandomDataSetOfObjects:10];
     
     self.lineGraphView = [[LineGraph alloc] initWithDataSource:dataSource graphScale:graphScale andGraphLayoutNeeded:YES];
     [self.view addSubview:self.lineGraphView];

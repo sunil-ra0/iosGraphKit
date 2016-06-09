@@ -23,7 +23,7 @@
     
     if (self)
     {
-        self.backgroundColor = [UIColor lightGrayColor];
+        self.backgroundColor = [UIColor whiteColor];
         self.dataArray = dataArray;
     }
     

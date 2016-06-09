@@ -37,7 +37,7 @@
     
     if (self)
     {
-        self.backgroundColor = [UIColor lightTextColor];
+        self.backgroundColor = [UIColor whiteColor];
         self.dataArray = dataArray;
         self.scale = scale;
         self.isLayoutNeeded = layoutNeeded;

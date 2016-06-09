@@ -200,6 +200,9 @@ typedef enum
             }
             else
             {
+                
+            // NOTE : t-current time; b- beginning time; c-change in value; d-duration
+
                 rotationAngle = easeInOutBack(currentFrame ++, startAngle, (destAngle - startAngle), totalAniFrames);
             }
             
