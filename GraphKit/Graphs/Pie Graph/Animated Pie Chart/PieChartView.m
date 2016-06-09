@@ -370,7 +370,7 @@ float BounceEaseOut(float p)
         adjY = pieLoweredYPos;
     }
     
-    float deltaY = touchPoint.y - yPos;
+    float deltaY = touchPoint.y - adjY;
     float deltaX = touchPoint.x - xPos;
     
     float distance = sqrt((deltaX*deltaX) + (deltaY*deltaY));
