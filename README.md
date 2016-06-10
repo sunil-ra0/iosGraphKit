@@ -33,7 +33,7 @@ Bar Graph with Gradient values representaiton
 
 Pie Chart With Slice seperation animation
 
-![screen shot 2016-06-09 at 5 43 30 pm](https://cloud.githubusercontent.com/assets/14992134/15929261/bcdc75b2-2e69-11e6-835f-b9d3d254199f.png)
+![screen shot 2016-06-10 at 12 07 13 pm](https://cloud.githubusercontent.com/assets/14992134/15956131/f65fcf2e-2f03-11e6-9bcf-7a17d6cfea29.png)
 
 Reference
 For Pie Chart animation : https://app.pluralsight.com/library/courses/ios-graphics-animation-programming/table-of-contents
